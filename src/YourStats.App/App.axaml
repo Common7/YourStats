@@ -1,0 +1,24 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="YourStats.App.App"
+             xmlns:local="using:YourStats.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+             
+    <Application.Resources>
+        <SolidColorBrush x:Key="BrandPurple" Color="#ae40f2" />
+        <SolidColorBrush x:Key="AppBackground" Color="#14142e" />
+        <SolidColorBrush x:Key="ContainerBackground" Color="#1f1f45"></SolidColorBrush>
+        <SolidColorBrush x:Key="ElementHover" Color="#c574f5"></SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryText" Color="#9da0b5"></SolidColorBrush>
+        <FontFamily x:Key="TitleFont">avares://YourStats.App/Assets#Inter</FontFamily>
+    </Application.Resources>
+</Application>

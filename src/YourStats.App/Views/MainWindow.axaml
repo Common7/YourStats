@@ -1,0 +1,77 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:YourStats.App.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="YourStats.App.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="YourStats.App">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>git
+    </Design.DataContext>
+
+
+    <Grid Background="{DynamicResource AppBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.Styles>
+            <Style Selector="Button.nav">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Padding" Value="20,0" /> <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="CornerRadius" Value="0" /> <Setter Property="Foreground" Value="{DynamicResource TextPrimary}" />
+            </Style>
+
+            <Style Selector="Button.nav:pointerover /template/ ContentPresenter">
+                <Setter Property="Background" Value="#1AFFFFFF" /> <Setter Property="Foreground" Value="{StaticResource BrandPurple}" />
+            </Style>
+        </Grid.Styles>
+        
+        <Panel Grid.Row="0" Background="{DynamicResource AppBackground}">
+            <Grid ColumnDefinitions="Auto, *" Margin="10">
+                <StackPanel Orientation="Horizontal" Spacing="0" Background="{StaticResource BrandPurple}">
+                    <Svg Path="/Assets/bitmap.svg" Margin="5"/>
+                    <TextBlock VerticalAlignment="Center" 
+                               FontFamily="{StaticResource TitleFont}" 
+                               FontSize="40"
+                               FontWeight="Bold"
+                               Margin="0,0,5,0">YourStats</TextBlock>
+                </StackPanel>
+                
+                <StackPanel Grid.Column="1" 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Right" 
+                            Spacing="15"
+                            VerticalAlignment="Stretch">
+                    <Button Content="Matches" 
+                            Classes="nav"
+                            VerticalAlignment="Stretch"
+                            VerticalContentAlignment="Center"/>
+                    <Button Content="Players" 
+                            Classes="nav"
+                            VerticalAlignment="Stretch"
+                            VerticalContentAlignment="Center"/>
+                    <Button Content="Settings" 
+                            Classes="nav"
+                            VerticalAlignment="Stretch"
+                            VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Panel>
+        <Panel Grid.Row="1" Background="{DynamicResource ContainerBackground}" Margin="10,0,10,10">
+            <TextBlock>Content</TextBlock>
+        </Panel>
+    </Grid>
+
+</Window>
+
+
