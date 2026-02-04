@@ -3,16 +3,18 @@
         xmlns:vm="using:YourStats.App.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:lucideAvalonia="clr-namespace:LucideAvalonia;assembly=LucideAvalonia"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="800"
         x:Class="YourStats.App.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="YourStats.App">
+        Title="YourStats.App"
+        >
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>git
+        <vm:MainWindowViewModel/>
     </Design.DataContext>
 
 
@@ -28,7 +30,10 @@
                 <Setter Property="Padding" Value="20,0" /> <Setter Property="VerticalAlignment" Value="Stretch" />
                 <Setter Property="VerticalContentAlignment" Value="Center" />
                 <Setter Property="BorderThickness" Value="0" />
-                <Setter Property="CornerRadius" Value="0" /> <Setter Property="Foreground" Value="{DynamicResource TextPrimary}" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="Foreground" Value="WhiteSmoke" />
+                <Setter Property="FontSize" Value="20" />
+                
             </Style>
 
             <Style Selector="Button.nav:pointerover /template/ ContentPresenter">
@@ -52,23 +57,69 @@
                             HorizontalAlignment="Right" 
                             Spacing="15"
                             VerticalAlignment="Stretch">
-                    <Button Content="Matches" 
-                            Classes="nav"
+                    <Button Classes="nav"
                             VerticalAlignment="Stretch"
-                            VerticalContentAlignment="Center"/>
-                    <Button Content="Players" 
-                            Classes="nav"
+                            VerticalContentAlignment="Center"
+                            Command="{Binding ShowDashboard}">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <lucideAvalonia:Lucide Icon="LayoutGrid" 
+                                                   StrokeBrush="WhiteSmoke" 
+                                                   StrokeThickness="2" 
+                                                   Width="22" Height="22" 
+                                                   Margin="0,-1,0,0"
+                                                   VerticalAlignment="Center" />
+                            <TextBlock VerticalAlignment="Center">Dashboard</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="nav"
                             VerticalAlignment="Stretch"
-                            VerticalContentAlignment="Center"/>
-                    <Button Content="Settings" 
-                            Classes="nav"
+                            VerticalContentAlignment="Center"
+                            Command="{Binding ShowMatches}">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <lucideAvalonia:Lucide Icon="Crosshair" 
+                                                   StrokeBrush="WhiteSmoke" 
+                                                   StrokeThickness="2" 
+                                                   Width="22" Height="22" 
+                                                   Margin="0,-1,0,0"
+                                                   VerticalAlignment="Center" />
+                            <TextBlock VerticalAlignment="Center">Matches</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="nav"
                             VerticalAlignment="Stretch"
-                            VerticalContentAlignment="Center"/>
+                            VerticalContentAlignment="Center"
+                            Command="{Binding ShowStats}">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <lucideAvalonia:Lucide Icon="ChartBar" 
+                                                   StrokeBrush="WhiteSmoke" 
+                                                   StrokeThickness="2" 
+                                                   Width="22" Height="22" 
+                                                   Margin="0,-1,0,0"
+                                                   VerticalAlignment="Center" />
+                            <TextBlock VerticalAlignment="Center">Stats</TextBlock>
+                        </StackPanel>
+                    </Button><Button Classes="nav"
+                                     VerticalAlignment="Stretch"
+                                     VerticalContentAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <lucideAvalonia:Lucide Icon="Settings2" 
+                                                   StrokeBrush="WhiteSmoke" 
+                                                   StrokeThickness="2" 
+                                                   Width="22" Height="22" 
+                                                   Margin="0,-1,0,0"
+                                                   VerticalAlignment="Center" />
+                            <TextBlock VerticalAlignment="Center">Settings</TextBlock>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Panel>
         <Panel Grid.Row="1" Background="{DynamicResource ContainerBackground}" Margin="10,0,10,10">
-            <TextBlock>Content</TextBlock>
+            <TransitioningContentControl Content="{Binding CurrentPage}">
+                <TransitioningContentControl.PageTransition>
+                    <CrossFade Duration="0:0:0.25" />
+                </TransitioningContentControl.PageTransition>
+            </TransitioningContentControl>
         </Panel>
     </Grid>
 

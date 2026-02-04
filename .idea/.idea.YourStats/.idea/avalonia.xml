@@ -4,7 +4,10 @@
     <option name="projectPerEditor">
       <map>
         <entry key="src/YourStats.App/App.axaml" value="src/YourStats.App/YourStats.App.csproj" />
+        <entry key="src/YourStats.App/Views/DashboardView.axaml" value="src/YourStats.App/YourStats.App.csproj" />
         <entry key="src/YourStats.App/Views/MainWindow.axaml" value="src/YourStats.App/YourStats.App.csproj" />
+        <entry key="src/YourStats.App/Views/MatchesView.axaml" value="src/YourStats.App/YourStats.App.csproj" />
+        <entry key="src/YourStats.App/Views/StatsView.axaml" value="src/YourStats.App/YourStats.App.csproj" />
       </map>
     </option>
   </component>

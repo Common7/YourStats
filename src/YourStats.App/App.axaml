@@ -18,7 +18,6 @@
         <SolidColorBrush x:Key="AppBackground" Color="#14142e" />
         <SolidColorBrush x:Key="ContainerBackground" Color="#1f1f45"></SolidColorBrush>
         <SolidColorBrush x:Key="ElementHover" Color="#c574f5"></SolidColorBrush>
-        <SolidColorBrush x:Key="PrimaryText" Color="#9da0b5"></SolidColorBrush>
         <FontFamily x:Key="TitleFont">avares://YourStats.App/Assets#Inter</FontFamily>
     </Application.Resources>
 </Application>
